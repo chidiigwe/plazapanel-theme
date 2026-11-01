@@ -1,0 +1,240 @@
+/* PlazaPanel 0.9.3 — unified mobile navigation */
+
+/* Header */
+#inner-wrapper > .clear:has(#headerbar) {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    min-height: 70px;
+    padding: 12px 22px !important;
+}
+
+#inner-wrapper > .clear:has(#headerbar) > .left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    float: none !important;
+}
+
+#headerbar {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: auto !important;
+    padding: 0 !important;
+    background: transparent;
+    float: none !important;
+}
+
+#pp-mobile-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #dbe3ee;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #17243a;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+#pp-drawer,
+#pp-mobile-overlay {
+    display: none;
+}
+
+/* Mobile only */
+@media (max-width: 991px) {
+    #inner-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        min-width: 0 !important;
+    }
+
+    #inner-wrapper > .clear:has(#headerbar) {
+        padding: 10px 12px !important;
+        gap: 8px;
+    }
+
+    #pp-mobile-toggle {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    #logo.pp-brand {
+        min-width: 0 !important;
+    }
+
+    #logo.pp-brand a {
+        font-size: 19px;
+    }
+
+    #headerbar {
+        flex: 1 1 100%;
+        justify-content: flex-end;
+        width: 100% !important;
+    }
+
+    /* Disable old Pushy drawer presentation. */
+    nav.pushy,
+    .site-overlay {
+        display: none !important;
+    }
+
+    #pp-drawer {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10020;
+        width: min(86vw, 320px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: #17243a;
+        color: #e2e8f0;
+        transform: translateX(-105%);
+        visibility: hidden;
+        transition: transform .2s ease, visibility .2s;
+        box-shadow: 8px 0 32px rgba(15,23,42,.15);
+    }
+
+    .pp-drawer-heading {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 17px;
+        background: #111f34;
+        border-bottom: 1px solid #334155;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .pp-drawer-close {
+        width: 38px;
+        height: 38px;
+        background: transparent;
+        border: 0;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    #pp-drawer #topnav-container,
+    #pp-drawer #sidebar {
+        display: block !important;
+        position: static !important;
+        float: none !important;
+        transform: none !important;
+        visibility: visible !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 12px !important;
+        overflow: visible !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        color: #e2e8f0 !important;
+    }
+
+    #pp-drawer #main-navigation {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        gap: 4px;
+        padding: 0;
+    }
+
+    #pp-drawer #main-navigation > a.btn {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start;
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        min-height: 44px;
+        padding: 11px 14px;
+    }
+
+    #pp-drawer #sidebar header {
+        background: #253a58 !important;
+        color: #a9cfff !important;
+    }
+
+    #pp-drawer #sidebar header a {
+        color: #a9cfff !important;
+    }
+
+    #pp-drawer #sidebar #sub-navigation li a {
+        color: #e2e8f0 !important;
+        background: transparent;
+    }
+
+    #pp-drawer #sidebar #sub-navigation li a:hover {
+        background: #2f4768 !important;
+        color: #ffffff !important;
+    }
+
+    body.pp-menu-open #pp-drawer {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    #pp-mobile-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 10010;
+        background: rgba(15,23,42,.62);
+    }
+
+    body.pp-menu-open #pp-mobile-overlay {
+        display: block;
+    }
+
+    body.pp-menu-open {
+        overflow: hidden;
+    }
+
+    /* Work area should remain full width */
+    #inner-wrapper > .clear:has(> #content) {
+        display: block !important;
+        width: 100% !important;
+        padding: 12px !important;
+    }
+
+    #content {
+        width: 100% !important;
+        min-width: 0;
+        float: none !important;
+        padding: 0 !important;
+    }
+
+    #pageContent {
+        width: 100%;
+        min-width: 0;
+        padding: 14px !important;
+    }
+
+    #footer {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #pp-drawer {
+        transition: none !important;
+    }
+}

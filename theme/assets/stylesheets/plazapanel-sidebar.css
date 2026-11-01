@@ -1,0 +1,222 @@
+/*
+ * PlazaPanel 0.7 — Unified Sidebar
+ * CSS-only layout: preserve ISPConfig's existing DOM and AJAX.
+ */
+
+@media (min-width: 992px) {
+
+    #inner-wrapper {
+        grid-template-columns: 245px minmax(0, 1fr) !important;
+        grid-template-rows: auto auto minmax(0, 1fr) auto !important;
+    }
+
+    /* Existing wrapper becomes transparent to CSS Grid. */
+    #inner-wrapper > .clear:has(> #content) {
+        display: contents !important;
+    }
+
+    /* Primary module navigation */
+    #topnav-container {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        width: 245px !important;
+        align-self: stretch;
+        padding: 18px 12px 8px;
+    }
+
+    /* Secondary navigation remains the original ISPConfig element */
+    #sidebar {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+        order: initial !important;
+        width: 245px !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 8px 12px 24px !important;
+        background: #17243a !important;
+        color: #dbe5f2;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: static !important;
+        float: none !important;
+        align-self: stretch;
+        overflow-wrap: break-word;
+    }
+
+    #content {
+        grid-column: 2 !important;
+        grid-row: 2 / 4 !important;
+        order: initial !important;
+        width: 100% !important;
+        min-width: 0;
+        padding: 24px !important;
+        margin: 0 !important;
+        background: #f3f6fb;
+        float: none !important;
+        align-self: stretch;
+    }
+
+    #inner-wrapper > #footer {
+        grid-row: 4 !important;
+    }
+}
+
+/* Sidebar group headings */
+#sidebar header {
+    color: #93c5fd !important;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin: 14px 8px 8px;
+}
+
+/* Secondary navigation */
+#sidebar #sub-navigation {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sidebar #sub-navigation li {
+    margin: 3px 0;
+}
+
+#sidebar #sub-navigation li a {
+    display: block;
+    padding: 10px 13px;
+    border-radius: 8px;
+    color: #dbe5f2 !important;
+    background: transparent;
+    text-decoration: none;
+}
+
+#sidebar #sub-navigation li a:hover,
+#sidebar #sub-navigation li a:focus {
+    color: #ffffff !important;
+    background: #2c4262 !important;
+}
+
+/* Keep dynamically rendered sidebar text readable. */
+#sidebar a {
+    color: #bfdbfe;
+}
+
+#sidebar a:hover {
+    color: #ffffff;
+}
+
+/* Preserve keyboard accessibility */
+#sidebar a:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+/* Mobile: retain the working 0.6 layout */
+@media (max-width: 991px) {
+    #inner-wrapper > .clear:has(> #content) {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    #sidebar {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        background: #ffffff !important;
+        color: #334155;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+    }
+
+    #sidebar header {
+        color: #475569 !important;
+    }
+
+    #sidebar #sub-navigation li a {
+        color: #334155 !important;
+    }
+
+    #sidebar #sub-navigation li a:hover {
+        color: #1d4ed8 !important;
+        background: #eff6ff !important;
+    }
+}
+
+/* ==================================================
+   PlazaPanel 0.7.1 — Sidebar section refinements
+   ================================================== */
+
+@media (min-width: 992px) {
+
+    /* Section titles: darker navy card */
+    #sidebar header {
+        display: block;
+        margin: 18px 0 8px !important;
+        padding: 11px 13px !important;
+        background: #253a58 !important;
+        color: #a9cfff !important;
+        border: 1px solid #334b6c;
+        border-left: 3px solid #60a5fa;
+        border-radius: 7px;
+        font-size: 11px !important;
+        font-weight: 700;
+        letter-spacing: .07em;
+        line-height: 1.5;
+        text-transform: uppercase;
+        box-shadow: none;
+    }
+
+    /* Header links inherit the section-heading colour */
+    #sidebar header a,
+    #sidebar header a:visited {
+        color: #a9cfff !important;
+        text-decoration: none;
+    }
+
+    #sidebar header a:hover {
+        color: #ffffff !important;
+    }
+
+    /* Improve navigation link spacing */
+    #sidebar #sub-navigation li a {
+        padding: 10px 13px;
+        margin: 2px 0;
+        border-radius: 7px;
+        color: #dbe5f2 !important;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    /* Hover */
+    #sidebar #sub-navigation li a:hover,
+    #sidebar #sub-navigation li a:focus {
+        background: #2f4768 !important;
+        color: #ffffff !important;
+    }
+
+    /* Active link, where ISPConfig supplies the class */
+    #sidebar #sub-navigation li.active > a,
+    #sidebar #sub-navigation li a.active {
+        background: #2563eb !important;
+        color: #ffffff !important;
+        font-weight: 600;
+    }
+}
+
+/* Mobile section headers */
+@media (max-width: 991px) {
+    #sidebar header {
+        background: #eaf2ff !important;
+        border-left: 3px solid #2563eb;
+        border-radius: 7px;
+        padding: 10px 12px !important;
+        color: #1d4ed8 !important;
+    }
+
+    #sidebar header a {
+        color: #1d4ed8 !important;
+    }
+}

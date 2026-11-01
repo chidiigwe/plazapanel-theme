@@ -1,0 +1,104 @@
+/*
+ * PlazaPanel 0.9.13
+ * Dashboard visual refinement
+ */
+
+/* Dashboard headings */
+#pageContent .page-header h1 {
+    color: #17243a;
+    font-weight: 750;
+    letter-spacing: -.5px;
+}
+
+/* Module launcher */
+#pageContent ul.modules {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    padding: 0 !important;
+    margin: 18px 0 28px !important;
+    list-style: none;
+}
+
+#pageContent ul.modules > li {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto !important;
+    min-width: 0;
+    min-height: 155px;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 3px 12px rgba(15,23,42,.035);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+#pageContent ul.modules > li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15,23,42,.09);
+    border-color: #bfdbfe !important;
+}
+
+#pageContent ul.modules > li .title {
+    color: #17243a;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Module launch buttons */
+#pageContent ul.modules > li a.btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 12px;
+    color: #2563eb;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 9px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#pageContent ul.modules > li a.btn:hover {
+    color: #ffffff;
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Quota and system monitoring areas */
+#pageContent .dashboard {
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* Responsive cards */
+@media (max-width: 767px) {
+    #pageContent ul.modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #pageContent ul.modules > li {
+        min-height: 145px;
+        padding: 14px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    #pageContent ul.modules {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #pageContent ul.modules > li {
+        transition: none;
+    }
+
+    #pageContent ul.modules > li:hover {
+        transform: none;
+    }
+}

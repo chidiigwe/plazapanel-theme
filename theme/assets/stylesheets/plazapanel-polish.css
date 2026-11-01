@@ -1,0 +1,129 @@
+/*
+ * PlazaPanel 0.9.10
+ * Responsive management page refinements
+ */
+
+#pageContent {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Page headings */
+#pageContent .page-header {
+    padding-bottom: 16px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#pageContent .page-header h1 {
+    font-size: clamp(21px, 2vw, 27px);
+    line-height: 1.3;
+    color: #17243a;
+    overflow-wrap: anywhere;
+}
+
+/* Section titles */
+#pageContent .fieldset-legend {
+    margin: 20px 0 12px;
+    padding: 10px 14px;
+    background: #eaf1fb;
+    border-left: 3px solid #2563eb;
+    border-radius: 6px;
+    color: #1e3a5f;
+    font-weight: 700;
+}
+
+/* Existing ISPConfig table containers */
+#pageContent .table-wrapper,
+#pageContent .table-responsive {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Avoid squashing table columns */
+#pageContent .table-wrapper > table {
+    width: 100%;
+}
+
+/* Long domain names and URLs */
+#pageContent table td a {
+    overflow-wrap: anywhere;
+}
+
+/* List actions */
+#pageContent .formbutton-narrow {
+    min-width: 32px;
+    min-height: 34px;
+    margin: 2px;
+    border-radius: 7px;
+}
+
+/* Input groups */
+#pageContent .input-group {
+    max-width: 100%;
+}
+
+#pageContent .form-control {
+    max-width: 100%;
+}
+
+/* Tabs */
+#pageContent .nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    min-width: 0;
+}
+
+#pageContent .nav-tabs > li {
+    float: none;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    #pageContent .page-header {
+        margin-bottom: 16px;
+    }
+
+    #pageContent .fieldset-legend {
+        padding: 10px 12px;
+    }
+
+    /* Preserve table structure with horizontal scrolling */
+    #pageContent .table-wrapper > table,
+    #pageContent .table-responsive > table {
+        min-width: 620px;
+    }
+
+    #pageContent .form-horizontal .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #pageContent .form-horizontal .control-label {
+        display: block;
+        width: 100%;
+        float: none;
+        text-align: left;
+        margin-bottom: 6px;
+    }
+
+    #pageContent .form-horizontal .form-group > [class*="col-sm-"] {
+        width: 100%;
+        float: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #pageContent .nav-tabs > li > a {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    #pageContent .btn {
+        white-space: normal;
+    }
+}

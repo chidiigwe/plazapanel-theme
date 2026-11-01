@@ -1,0 +1,506 @@
+/*
+ * PlazaPanel 1.2 — Modern dashboard module launcher
+ * Uses existing ISPConfig module links.
+ */
+
+#pageContent ul.modules {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    gap: 16px !important;
+    margin: 22px 0 30px !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* The module card */
+#pageContent ul.modules > li {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 165px !important;
+
+    margin: 0 !important;
+    padding: 22px 12px !important;
+
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 3px 12px rgba(15,23,42,.035) !important;
+
+    text-align: center !important;
+    cursor: pointer;
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease !important;
+}
+
+/* Hover */
+#pageContent ul.modules > li:hover {
+    transform: translateY(-4px);
+    border-color: #93b4f9 !important;
+    box-shadow: 0 12px 28px rgba(37,99,235,.11) !important;
+}
+
+/* Keyboard focus */
+#pageContent ul.modules > li:focus-within {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+/* Module name */
+#pageContent ul.modules > li .title {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #17243a !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+}
+
+/*
+ * Keep the existing real hyperlink, but stretch its
+ * clickable area over the entire card.
+ */
+#pageContent ul.modules > li > a.btn {
+    position: absolute !important;
+    z-index: 2 !important;
+    inset: 0 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: inherit !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    font-size: 0 !important;
+    color: transparent !important;
+    overflow: hidden !important;
+    cursor: pointer;
+}
+
+#pageContent ul.modules > li > a.btn:hover,
+#pageContent ul.modules > li > a.btn:focus {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Desktop */
+@media (min-width: 1400px) {
+    #pageContent ul.modules {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1399px) {
+    #pageContent ul.modules {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(150px, 1fr)
+        ) !important;
+    }
+}
+
+/* Mobile — two cards per row */
+@media (max-width: 767px) {
+    #pageContent ul.modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    #pageContent ul.modules > li {
+        min-height: 135px !important;
+        padding: 17px 8px !important;
+        border-radius: 12px !important;
+        gap: 10px !important;
+    }
+
+    #pageContent ul.modules > li .title {
+        font-size: 13px !important;
+    }
+}
+
+/* Very narrow screens */
+@media (max-width: 340px) {
+    #pageContent ul.modules {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #pageContent ul.modules > li {
+        transition: none !important;
+    }
+
+    #pageContent ul.modules > li:hover {
+        transform: none !important;
+    }
+}
+
+/* PlazaPanel Dashboard — vertical icon and title fix */
+
+#pageContent ul.modules > li {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    text-align: center !important;
+}
+
+/* Reset original dashboard icon layout */
+#pageContent ul.modules > li .icon,
+#pageContent ul.modules > li [class*="icon-"] {
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    font-size: 38px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+}
+
+/* Centre the title below the icon */
+#pageContent ul.modules > li .title {
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+/* Remove constraints inherited from old module cards */
+#pageContent ul.modules > li > div,
+#pageContent ul.modules > li > span {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+}
+
+/* Consistent card dimensions */
+#pageContent ul.modules > li {
+    min-height: 175px !important;
+    padding: 24px 15px !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #pageContent ul.modules > li {
+        min-height: 145px !important;
+        padding: 18px 10px !important;
+    }
+
+    #pageContent ul.modules > li .icon,
+    #pageContent ul.modules > li [class*="icon-"] {
+        font-size: 32px !important;
+    }
+
+    #pageContent ul.modules > li .title {
+        font-size: 13px !important;
+    }
+}
+
+/* PlazaPanel dashboard cards — modern vertical refinement */
+
+#pageContent ul.modules {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 18px !important;
+    margin: 22px 0 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+#pageContent ul.modules > li {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 168px !important;
+    min-height: 176px !important;
+    border: 1px solid #d9e2ef !important;
+    border-radius: 18px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+    overflow: hidden !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+}
+
+#pageContent ul.modules > li:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.10) !important;
+    border-color: #bfd2f3 !important;
+}
+
+/* Make the whole card the link */
+#pageContent ul.modules > li > a {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+
+    width: 100% !important;
+    min-height: 176px !important;
+    padding: 28px 16px !important;
+
+    text-decoration: none !important;
+    text-align: center !important;
+    color: #1e293b !important;
+}
+
+/* Kill old float/inline behaviour */
+#pageContent ul.modules > li > a * {
+    float: none !important;
+}
+
+/* Icon block */
+#pageContent ul.modules > li > a .icon,
+#pageContent ul.modules > li > a [class^="icon-"],
+#pageContent ul.modules > li > a [class*=" icon-"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 56px !important;
+    height: 56px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 34px !important;
+    line-height: 1 !important;
+    color: #253046 !important;
+
+    border-radius: 14px !important;
+    background: #f5f8fe !important;
+}
+
+/* Title below the icon */
+#pageContent ul.modules > li > a .title,
+#pageContent ul.modules > li > a span:not(.icon),
+#pageContent ul.modules > li > a strong {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #1f2a44 !important;
+
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* Slightly larger dashboard headings */
+#pageContent h1,
+#pageContent h2,
+#pageContent h3 {
+    color: #10213f !important;
+}
+
+@media (max-width: 991px) {
+    #pageContent ul.modules {
+        gap: 14px !important;
+    }
+
+    #pageContent ul.modules > li {
+        width: calc(50% - 7px) !important;
+        min-height: 152px !important;
+    }
+
+    #pageContent ul.modules > li > a {
+        min-height: 152px !important;
+        padding: 22px 12px !important;
+        gap: 12px !important;
+    }
+
+    #pageContent ul.modules > li > a .icon,
+    #pageContent ul.modules > li > a [class^="icon-"],
+    #pageContent ul.modules > li > a [class*=" icon-"] {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 28px !important;
+    }
+
+    #pageContent ul.modules > li > a .title,
+    #pageContent ul.modules > li > a span:not(.icon),
+    #pageContent ul.modules > li > a strong {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    #pageContent ul.modules > li {
+        width: 100% !important;
+    }
+}
+
+/* PlazaPanel dashboard — strict vertical icon/title layout */
+
+#pageContent ul.modules {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)) !important;
+    gap: 18px !important;
+}
+
+#pageContent ul.modules > li {
+    position: relative !important;
+    display: block !important;
+    width: auto !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    background: #ffffff !important;
+}
+
+/* Override every previous horizontal layout on icon wrappers */
+#pageContent ul.modules > li .icon,
+#pageContent ul.modules > li [class^="icon-"],
+#pageContent ul.modules > li [class*=" icon-"] {
+    position: absolute !important;
+    top: 35px !important;
+    left: 50% !important;
+    right: auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 80px !important;
+    height: 80px !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: translateX(-50%) !important;
+    float: none !important;
+    clear: both !important;
+
+    background: #eff6ff !important;
+    border-radius: 18px !important;
+    color: #2563eb !important;
+
+    font-size: 48px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+}
+
+/* Force title below icon, regardless of existing flex rules */
+#pageContent ul.modules > li .title {
+    position: absolute !important;
+    top: 130px !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 12px !important;
+
+    float: none !important;
+    clear: both !important;
+    transform: none !important;
+
+    font-size: 19px !important;
+    font-weight: 750 !important;
+    line-height: 1.35 !important;
+    color: #17243a !important;
+
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+
+    box-sizing: border-box !important;
+}
+
+/* Preserve full-card clickable link */
+#pageContent ul.modules > li > a.btn {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+    font-size: 0 !important;
+    border: 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #pageContent ul.modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    #pageContent ul.modules > li {
+        height: 175px !important;
+        min-height: 175px !important;
+    }
+
+    #pageContent ul.modules > li .icon,
+    #pageContent ul.modules > li [class^="icon-"],
+    #pageContent ul.modules > li [class*=" icon-"] {
+        top: 25px !important;
+        width: 70px !important;
+        height: 70px !important;
+        font-size: 42px !important;
+    }
+
+    #pageContent ul.modules > li .title {
+        top: 112px !important;
+        font-size: 17px !important;
+    }
+}

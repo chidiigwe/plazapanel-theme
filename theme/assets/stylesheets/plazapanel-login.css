@@ -1,0 +1,346 @@
+/*
+ * PlazaPanel 0.9.6
+ * Simple centered authentication page
+ */
+
+html,
+body.pp-login-simple {
+    min-height: 100%;
+}
+
+body.pp-login-simple {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+    background: #f3f6fb;
+    color: #17243a;
+}
+
+.pp-login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 28px 16px;
+}
+
+.pp-login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 38px 36px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, .07),
+        0 3px 10px rgba(15, 23, 42, .03);
+}
+
+/* Branding */
+.pp-login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.pp-login-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 11px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.pp-login-name {
+    font-size: 27px;
+    font-weight: 750;
+    letter-spacing: -1px;
+    color: #17243a;
+}
+
+.pp-login-name strong {
+    color: #2563eb;
+}
+
+/* Heading */
+.pp-login-heading {
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+.pp-login-heading h1 {
+    margin: 0 0 8px;
+    color: #17243a;
+    font-size: 25px;
+    font-weight: 750;
+}
+
+.pp-login-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Authentication form */
+.pp-login-fields {
+    width: 100%;
+}
+
+.pp-login-fields form {
+    width: 100%;
+}
+
+.pp-login-fields label {
+    display: block;
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pp-login-fields .form-control {
+    width: 100%;
+    min-height: 45px;
+    padding: 10px 13px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    color: #17243a;
+    box-shadow: none;
+}
+
+.pp-login-fields .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+.pp-login-fields .form-group {
+    margin-bottom: 19px;
+}
+
+/* Sign-in button */
+.pp-login-fields button[type="submit"],
+.pp-login-fields input[type="submit"],
+.pp-login-fields .btn-primary {
+    width: 100%;
+    min-height: 45px;
+    padding: 11px 16px;
+    background: #2563eb;
+    border: 1px solid #2563eb;
+    border-radius: 9px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.pp-login-fields button[type="submit"]:hover,
+.pp-login-fields input[type="submit"]:hover,
+.pp-login-fields .btn-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+/* Links and optional text */
+.pp-login-fields a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.pp-login-fields a:hover {
+    text-decoration: underline;
+}
+
+.pp-login-custom {
+    margin-top: 20px;
+    text-align: center;
+    color: #64748b;
+}
+
+.pp-login-custom:empty {
+    display: none;
+}
+
+.pp-login-footer {
+    margin-top: 22px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .pp-login-wrapper {
+        padding: 18px 14px;
+    }
+
+    .pp-login-card {
+        padding: 30px 23px;
+        border-radius: 15px;
+    }
+
+    .pp-login-name {
+        font-size: 24px;
+    }
+
+    .pp-login-heading h1 {
+        font-size: 23px;
+    }
+}
+
+/* Accessibility */
+.pp-login-fields :focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* ==================================================
+   PlazaPanel 0.9.7 — Login actions
+   ================================================== */
+
+/* Keep form actions from floating beside each other */
+.pp-login-fields .form-actions,
+.pp-login-fields .button-wrapper,
+.pp-login-fields .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Primary sign-in action */
+.pp-login-fields button[type="submit"],
+.pp-login-fields input[type="submit"],
+.pp-login-fields .formbutton-success {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    margin: 8px 0 0;
+    padding: 11px 18px;
+    background: #2563eb;
+    border: 1px solid #2563eb;
+    border-radius: 9px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    float: none;
+}
+
+/* Password recovery link */
+.pp-login-fields a[href*="password"],
+.pp-login-fields a[href*="pw_lost"],
+.pp-login-fields a[href*="lost"] {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 14px 0 0 auto;
+    padding: 3px 0;
+    background: transparent;
+    border: 0;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    text-decoration: none;
+    float: none;
+}
+
+.pp-login-fields a[href*="password"]:hover,
+.pp-login-fields a[href*="pw_lost"]:hover,
+.pp-login-fields a[href*="lost"]:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Avoid squeezing controls on phones */
+@media (max-width: 480px) {
+    .pp-login-fields button[type="submit"],
+    .pp-login-fields input[type="submit"],
+    .pp-login-fields .formbutton-success {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   PlazaPanel 0.9.8 — Login action layout
+   ========================================= */
+
+/* ISPConfig places both actions inside .right */
+.pp-login-fields form fieldset > .right {
+    float: none !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin: 18px 0 0;
+    padding: 0;
+}
+
+/* Actual login submit input */
+.pp-login-fields form input[type="submit"].formbutton-default {
+    display: block !important;
+    width: 100% !important;
+    min-height: 46px;
+    margin: 0 !important;
+    padding: 12px 18px;
+    background: #2563eb !important;
+    border: 1px solid #2563eb !important;
+    border-radius: 9px;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: none;
+    cursor: pointer;
+    float: none !important;
+}
+
+.pp-login-fields form input[type="submit"].formbutton-default:hover {
+    background: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+}
+
+/* Actual password-reset button */
+.pp-login-fields form button[type="button"][onclick*="password_reset.php"] {
+    display: block !important;
+    align-self: center;
+    width: auto !important;
+    min-height: 38px;
+    margin: 0 !important;
+    padding: 6px 12px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 7px;
+    color: #2563eb !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: none !important;
+    float: none !important;
+}
+
+.pp-login-fields form button[type="button"][onclick*="password_reset.php"]:hover {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    text-decoration: underline;
+}
+
+/* Maintain visible keyboard focus */
+.pp-login-fields form input[type="submit"]:focus-visible,
+.pp-login-fields form button[type="button"]:focus-visible {
+    outline: 3px solid #93c5fd !important;
+    outline-offset: 3px;
+}

@@ -1,0 +1,207 @@
+/*
+ * PlazaPanel 0.9
+ * Header refinement and responsive foundations
+ * Preserves ISPConfig navigation, forms and JS.
+ */
+
+/* Consistent sizing */
+#inner-wrapper,
+#inner-wrapper * {
+    box-sizing: border-box;
+}
+
+/* Modern top bar */
+#inner-wrapper > .clear:has(#headerbar) {
+    min-height: 76px;
+    padding: 12px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 12px rgba(15,23,42,.04);
+    gap: 20px;
+}
+
+#headerbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Brand */
+#logo.pp-brand a {
+    font-size: 23px;
+    letter-spacing: -.7px;
+}
+
+/* Account/logout control */
+#logout-button {
+    border: 1px solid #dbe3ee;
+    border-radius: 9px;
+    padding: 9px 14px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: none !important;
+    box-shadow: none;
+}
+
+#logout-button:hover,
+#logout-button:focus {
+    background: #fee2e2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+/* Global search */
+#searchform {
+    max-width: 100%;
+}
+
+#globalsearch {
+    border-radius: 9px;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    min-height: 38px;
+}
+
+/* Content sizing */
+#content,
+#pageContent,
+#pageForm {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Management tables: scroll rather than squash columns */
+#pageContent .table-wrapper,
+#pageContent .table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Keep controls usable on touchscreens */
+#pageContent .btn,
+#main-navigation > a.btn,
+#sub-navigation a {
+    min-height: 38px;
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1199px) {
+    #inner-wrapper > .clear:has(#headerbar) {
+        padding: 12px 18px;
+    }
+
+    #pageContent {
+        padding: 18px;
+    }
+
+    #pageContent .form-control {
+        max-width: 100%;
+    }
+}
+
+/* Phones */
+@media (max-width: 767px) {
+    html,
+    body,
+    #container,
+    #main-wrapper,
+    #inner-wrapper {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+        overflow-x: clip;
+    }
+
+    #inner-wrapper > .clear:has(#headerbar) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        min-height: 62px;
+    }
+
+    #logo.pp-brand {
+        min-width: 0;
+    }
+
+    #logo.pp-brand a {
+        font-size: 19px;
+        min-height: 40px;
+    }
+
+    #logo.pp-brand .pp-mark {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+        margin-right: 7px;
+    }
+
+    #headerbar {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    #searchform {
+        width: 100%;
+    }
+
+    #globalsearch {
+        width: 100%;
+    }
+
+    #logout-button {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    #inner-wrapper > .clear:has(> #content) {
+        padding: 10px !important;
+    }
+
+    #content {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    #pageContent {
+        padding: 14px !important;
+        border-radius: 10px;
+    }
+
+    #pageContent .form-horizontal .control-label {
+        text-align: left;
+    }
+
+    #pageContent .table {
+        min-width: 560px;
+    }
+}
+
+/* Keyboard and motion accessibility */
+#logout-button:focus-visible,
+#globalsearch:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #inner-wrapper *,
+    #inner-wrapper *::before,
+    #inner-wrapper *::after {
+        scroll-behavior: auto;
+        transition-duration: 0s;
+        animation-duration: 0s;
+    }
+}

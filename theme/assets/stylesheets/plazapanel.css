@@ -1,0 +1,528 @@
+/*
+ * PlazaPanel 0.1
+ * Sentora-inspired styling for ISPConfig 3.3.2p1
+ * Keep functional ISPConfig controls intact.
+ */
+
+:root {
+    --pp-primary: #2563eb;
+    --pp-primary-dark: #1d4ed8;
+    --pp-navy: #17243a;
+    --pp-background: #f4f7fb;
+    --pp-surface: #ffffff;
+    --pp-border: #e2e8f0;
+    --pp-text: #1e293b;
+    --pp-muted: #64748b;
+    --pp-radius: 10px;
+}
+
+/* Overall interface */
+body {
+    background-color: var(--pp-background);
+    color: var(--pp-text);
+    font-family: system-ui, -apple-system, "Segoe UI",
+        Arial, sans-serif;
+}
+
+/* Main navigation */
+.navbar {
+    border-radius: 0;
+    border: 0;
+}
+
+.navbar-inverse {
+    background: var(--pp-navy);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #e2e8f0;
+}
+
+/* Cards and panels */
+.panel,
+.well,
+.modal-content {
+    background: var(--pp-surface);
+    border: 1px solid var(--pp-border);
+    border-radius: var(--pp-radius);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, .04);
+}
+
+.panel-heading {
+    border-radius: var(--pp-radius) var(--pp-radius) 0 0;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--pp-primary);
+    border-color: var(--pp-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--pp-primary-dark);
+    border-color: var(--pp-primary-dark);
+}
+
+/* Form controls */
+.form-control {
+    border-radius: 7px;
+    border-color: #cbd5e1;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: var(--pp-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+/* Tables */
+.table {
+    background: var(--pp-surface);
+}
+
+.table > thead > tr > th {
+    background: #f8fafc;
+    color: #475569;
+    border-bottom: 1px solid var(--pp-border);
+    font-weight: 600;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    border-top-color: var(--pp-border);
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    background: transparent;
+    padding-left: 0;
+}
+
+/* Consistent links */
+a {
+    color: var(--pp-primary);
+}
+
+a:hover {
+    color: var(--pp-primary-dark);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .panel,
+    .well {
+        border-radius: 8px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* =========================================================
+   PlazaPanel 0.2 — Sentora-inspired interface
+   ========================================================= */
+
+:root {
+    --pp-sidebar: #1c2b43;
+    --pp-sidebar-hover: #2c4262;
+    --pp-accent: #2d80d3;
+    --pp-shadow: 0 4px 20px rgba(15, 23, 42, .06);
+}
+
+/* Header */
+#headerbar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--pp-border);
+    padding: 12px 18px;
+}
+
+#logo {
+    border-radius: 8px;
+}
+
+/* Module navigation */
+#topnav-container {
+    background: var(--pp-navy);
+}
+
+#topnav-container a {
+    color: #e2e8f0;
+    transition: background .2s ease, color .2s ease;
+}
+
+#topnav-container a:hover,
+#topnav-container a:focus {
+    background: var(--pp-sidebar-hover);
+    color: #ffffff;
+}
+
+/* Main content */
+#content {
+    background: var(--pp-background);
+    min-height: 75vh;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: var(--pp-text);
+    font-weight: 600;
+}
+
+/* Panels */
+.panel {
+    overflow: hidden;
+    box-shadow: var(--pp-shadow);
+}
+
+.panel-heading {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--pp-border);
+    padding: 15px 18px;
+}
+
+/* Buttons and navigation */
+.btn-success {
+    border-radius: 7px;
+}
+
+.btn-danger {
+    border-radius: 7px;
+}
+
+/* Dashboard icon shortcuts */
+.dashboard .panel,
+.dashboard .well {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.dashboard .panel:hover,
+.dashboard .well:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .09);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    #headerbar {
+        padding: 10px;
+    }
+
+    #content {
+        padding: 12px;
+    }
+}
+
+/* ======================================================
+   PlazaPanel 0.3 — Navigation and dashboard refinement
+   Uses existing ISPConfig markup and event handlers.
+   ====================================================== */
+
+/* Top module navigation */
+#main-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background: #17243a;
+    border-radius: 10px;
+}
+
+#main-navigation > a.btn {
+    display: flex;
+    flex: 1 1 110px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 0;
+    padding: 14px 10px;
+    background: transparent;
+    color: #e2e8f0;
+    border: 1px solid transparent;
+    border-radius: 8px !important;
+    box-shadow: none;
+    white-space: normal;
+    text-shadow: none;
+}
+
+#main-navigation > a.btn:hover,
+#main-navigation > a.btn:focus {
+    background: #2c4262;
+    color: #ffffff;
+    border-color: #405675;
+}
+
+#main-navigation > a.btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+#main-navigation .title {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Sidebar links */
+#sub-navigation {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+}
+
+#sub-navigation li {
+    margin: 3px 0;
+}
+
+#sub-navigation li a {
+    display: block;
+    padding: 10px 13px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background-color .15s ease;
+}
+
+#sub-navigation li a:hover,
+#sub-navigation li a:focus {
+    background: #e9f1fc;
+    color: #1d4ed8;
+}
+
+/* Dashboard page heading */
+.page-header {
+    margin-top: 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.page-header h1 {
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 700;
+    color: #17243a;
+}
+
+/* Dashboard and module panels */
+.panel {
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 3px 14px rgba(15,23,42,.05);
+}
+
+.panel-title {
+    font-weight: 600;
+}
+
+.panel-body {
+    padding: 18px;
+}
+
+/* Improve keyboard navigation */
+#main-navigation a:focus-visible,
+#sub-navigation a:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #main-navigation a,
+    #sub-navigation a {
+        transition: none;
+    }
+}
+
+/* Responsive navigation */
+@media (max-width: 767px) {
+    #main-navigation {
+        gap: 5px;
+        padding: 8px;
+    }
+
+    #main-navigation > a.btn {
+        flex: 1 1 90px;
+        padding: 10px 6px;
+    }
+
+    #main-navigation .title {
+        font-size: 11px;
+    }
+
+    .panel-body {
+        padding: 12px;
+    }
+}
+
+/* =====================================================
+   PlazaPanel 0.4 — Structural Layout
+   ===================================================== */
+
+@media (min-width: 992px) {
+
+    #inner-wrapper > .clear:has(> #content) {
+        display: grid;
+        grid-template-columns: 250px minmax(0, 1fr);
+        grid-template-areas: "sidebar content";
+        align-items: start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #sidebar {
+        grid-area: sidebar;
+        float: none !important;
+        width: auto !important;
+        position: sticky;
+        top: 20px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 12px;
+    }
+
+    #content {
+        grid-area: content;
+        float: none !important;
+        width: auto !important;
+        min-width: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    #pageContent {
+        min-width: 0;
+    }
+}
+
+/* Header refinements */
+#headerbar {
+    border-radius: 0;
+    box-shadow: 0 1px 3px rgba(15,23,42,.04);
+}
+
+/* Sidebar heading */
+#sidebar header {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin: 16px 8px 8px;
+}
+
+/* Sidebar navigation */
+#sidebar #sub-navigation a {
+    color: #334155;
+    font-weight: 500;
+}
+
+#sidebar #sub-navigation a:hover {
+    color: #1d4ed8;
+    background: #eff6ff;
+}
+
+/* Main content */
+#pageContent {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    min-height: 450px;
+    box-shadow: 0 4px 20px rgba(15,23,42,.04);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    #pageContent {
+        padding: 14px;
+    }
+
+    #sidebar {
+        position: static;
+    }
+}
+
+/* =====================================================
+   PlazaPanel 0.4.1 — Dashboard layout repair
+   ===================================================== */
+
+@media (min-width: 992px) {
+
+    #inner-wrapper > .clear:has(> #content) {
+        display: flex !important;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Main dashboard content */
+    #content {
+        order: 2;
+        flex: 1 1 0;
+        width: auto !important;
+        min-width: 0;
+        float: none !important;
+        padding: 0;
+        background: transparent;
+    }
+
+    /* Existing ISPConfig news sidebar */
+    #sidebar {
+        order: 1;
+        flex: 0 0 250px;
+        width: 250px !important;
+        min-width: 250px;
+        max-width: 250px;
+        float: none !important;
+        position: static;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Dashboard content container */
+#pageContent {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Prevent long news entries from destroying columns */
+#sidebar * {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* Tablet and mobile */
+@media (max-width: 991px) {
+    #inner-wrapper > .clear:has(> #content) {
+        display: block !important;
+        padding: 12px;
+    }
+
+    #content,
+    #sidebar {
+        width: 100% !important;
+        max-width: 100%;
+        float: none !important;
+        margin-bottom: 16px;
+    }
+}

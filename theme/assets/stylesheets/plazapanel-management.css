@@ -1,0 +1,138 @@
+/*
+ * PlazaPanel 0.8 — Management interface
+ * Visual overrides only. Preserve existing ISPConfig handlers.
+ */
+
+/* Management headings */
+#pageContent .page-header {
+    margin: 0 0 24px;
+    padding: 0 0 18px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#pageContent .page-header h1 {
+    margin: 0;
+    color: #17243a;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* Data tables */
+#pageContent .table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+#pageContent .table {
+    width: 100%;
+    background: #ffffff;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#pageContent .table > thead > tr > th {
+    padding: 14px 16px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    border-bottom: 1px solid #dbe3ee;
+    white-space: nowrap;
+}
+
+#pageContent .table > tbody > tr > td {
+    padding: 13px 16px;
+    color: #334155;
+    border-bottom: 1px solid #edf2f7;
+}
+
+#pageContent .table > tbody > tr:hover {
+    background: #f8fbff;
+}
+
+/* Form fields */
+#pageContent .form-group {
+    margin-bottom: 20px;
+}
+
+#pageContent .control-label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#pageContent .form-control {
+    min-height: 39px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+#pageContent .form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.12);
+}
+
+/* Tabs — keep ISPConfig.changeTab() untouched */
+#pageContent .nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#pageContent .nav-tabs > li {
+    float: none;
+    margin-bottom: -1px;
+}
+
+#pageContent .nav-tabs > li > a {
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    color: #64748b;
+    font-weight: 600;
+}
+
+#pageContent .nav-tabs > li.active > a {
+    color: #2563eb;
+    border-bottom-color: #ffffff;
+    background: #ffffff;
+}
+
+#pageContent .tab-content {
+    padding-top: 24px;
+}
+
+/* Action buttons */
+#pageContent .btn {
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+#pageContent .btn-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Status notifications */
+#pageContent .alert {
+    border-radius: 9px;
+    padding: 15px 18px;
+}
+
+/* Responsive management pages */
+@media (max-width: 767px) {
+    #pageContent .page-header h1 {
+        font-size: 22px;
+    }
+
+    #pageContent .table > thead > tr > th,
+    #pageContent .table > tbody > tr > td {
+        padding: 10px 12px;
+    }
+
+    #pageContent .nav-tabs > li > a {
+        padding: 10px 12px;
+    }
+}

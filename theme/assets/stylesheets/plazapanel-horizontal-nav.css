@@ -1,0 +1,505 @@
+/*
+ * PlazaPanel 1.0 — Horizontal Primary Navigation
+ * Preserves native ISPConfig menu IDs and AJAX behaviour.
+ */
+
+/* Desktop layout */
+@media (min-width: 992px) {
+
+    #inner-wrapper {
+        display: grid !important;
+        grid-template-columns: 245px minmax(0, 1fr) !important;
+        grid-template-rows: auto auto minmax(0, 1fr) auto !important;
+        align-items: stretch;
+    }
+
+    #inner-wrapper > .clear:has(> #headerbar) {
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        min-width: 0;
+    }
+
+    /* Primary navigation spans the entire workspace. */
+    #topnav-container {
+        grid-column: 1 / -1 !important;
+        grid-row: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 8px 22px !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        border-radius: 0 !important;
+        box-shadow: 0 3px 12px rgba(15, 23, 42, .04);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+        box-sizing: border-box;
+        align-self: auto !important;
+    }
+
+    #inner-wrapper > .clear:has(> #content) {
+        display: contents !important;
+    }
+
+    /* Contextual sidebar only */
+    #sidebar {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+        width: 245px !important;
+        min-width: 0 !important;
+        max-width: 245px !important;
+        margin: 0 !important;
+        padding: 16px 12px 28px !important;
+        float: none !important;
+        position: static !important;
+        align-self: stretch !important;
+        background: #17243a !important;
+        border-radius: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* Main content receives the available space. */
+    #content {
+        grid-column: 2 !important;
+        grid-row: 3 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 24px !important;
+        float: none !important;
+        align-self: stretch !important;
+        background: #f3f6fb;
+        box-sizing: border-box;
+    }
+
+    #inner-wrapper > #footer {
+        grid-column: 1 / -1 !important;
+        grid-row: 4 !important;
+    }
+}
+
+/* Horizontal module menu */
+#topnav-container #main-navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    width: max-content !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+/* Each module is a compact navigation tab. */
+#topnav-container #main-navigation > a {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+
+    width: auto !important;
+    min-width: 90px !important;
+    min-height: 44px !important;
+
+    padding: 10px 15px !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 9px !important;
+    box-shadow: none !important;
+
+    color: #475569 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+
+    transition: background-color .15s ease,
+                color .15s ease,
+                border-color .15s ease;
+}
+
+#topnav-container #main-navigation > a > div {
+    display: inline-block !important;
+    float: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: inherit !important;
+}
+
+#topnav-container #main-navigation > a .title {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: inherit !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+}
+
+#topnav-container #main-navigation > a:hover,
+#topnav-container #main-navigation > a:focus {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border-color: #dbeafe !important;
+}
+
+#topnav-container #main-navigation > a.active {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+#topnav-container #main-navigation > a.active .title,
+#topnav-container #main-navigation > a.active > div {
+    color: #ffffff !important;
+}
+
+#topnav-container #main-navigation > a:focus-visible {
+    outline: 2px solid #60a5fa !important;
+    outline-offset: 2px;
+}
+
+/* Contextual navigation */
+@media (min-width: 992px) {
+    #sidebar {
+        overflow-wrap: anywhere;
+    }
+
+    #sidebar header:first-child {
+        margin-top: 0 !important;
+    }
+
+    #sidebar #sub-navigation li a {
+        display: block;
+        padding: 10px 12px !important;
+        font-size: 13px !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* Tablet and mobile: top modules stay visible and scrollable. */
+@media (max-width: 991px) {
+
+    #topnav-container {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+
+        padding: 8px 12px !important;
+        margin: 0 !important;
+
+        background: #ffffff !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        border-radius: 0 !important;
+
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+    }
+
+    #topnav-container #main-navigation > a {
+        min-width: 78px !important;
+        min-height: 42px !important;
+        padding: 9px 12px !important;
+    }
+
+    #inner-wrapper > .clear:has(> #content) {
+        display: flex !important;
+        flex-direction: column !important;
+        min-width: 0;
+    }
+
+    #content {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* The contextual sidebar is moved to the drawer by JS. */
+    #pp-drawer #sidebar {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #topnav-container #main-navigation > a {
+        transition: none !important;
+    }
+}
+
+/* PlazaPanel navigation polish — v1.1 */
+
+:root {
+    --pp-navy: #17243a;
+    --pp-blue: #2563eb;
+    --pp-blue-dark: #1d4ed8;
+    --pp-surface: #f3f6fc;
+}
+
+/* Subtle contrast between navigation and workspace */
+@media (min-width: 992px) {
+    #topnav-container {
+        background: #eef3fa !important;
+        padding: 11px 24px !important;
+        border-bottom: 1px solid #dce5f1 !important;
+        box-shadow: none !important;
+    }
+
+    #sidebar {
+        background: var(--pp-navy) !important;
+        padding: 20px 14px 28px !important;
+    }
+
+    #content {
+        background: var(--pp-surface) !important;
+        padding: 26px !important;
+    }
+}
+
+/* Clean module tabs */
+#topnav-container #main-navigation {
+    gap: 8px !important;
+}
+
+#topnav-container #main-navigation > a {
+    min-height: 46px !important;
+    border-radius: 10px !important;
+    color: #34445e !important;
+    font-weight: 600 !important;
+    padding: 10px 17px !important;
+}
+
+#topnav-container #main-navigation > a:hover {
+    background: #ffffff !important;
+    color: var(--pp-blue-dark) !important;
+    border-color: #cdddf6 !important;
+}
+
+#topnav-container #main-navigation > a.active {
+    background: var(--pp-blue) !important;
+    border-color: var(--pp-blue) !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 9px rgba(37,99,235,.16) !important;
+}
+
+/* Sidebar sections and hover states */
+@media (min-width: 992px) {
+    #sidebar header {
+        background: #253754 !important;
+        border: 0 !important;
+        border-left: 3px solid #60a5fa !important;
+        border-radius: 8px !important;
+    }
+
+    #sidebar #sub-navigation li a:hover,
+    #sidebar #sub-navigation li a:focus {
+        background: #30486c !important;
+        color: #ffffff !important;
+    }
+
+    #sidebar #sub-navigation li a.active,
+    #sidebar #sub-navigation li.active > a {
+        background: #2563eb !important;
+        color: #ffffff !important;
+    }
+}
+
+/* Mobile and tablet */
+@media (max-width: 991px) {
+    #topnav-container {
+        background: #eef3fa !important;
+        padding: 8px 10px !important;
+        border-bottom: 1px solid #dce5f1 !important;
+        overflow-x: auto !important;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+    }
+
+    #topnav-container #main-navigation {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        width: max-content !important;
+        min-width: 100% !important;
+        gap: 6px !important;
+    }
+
+    #topnav-container #main-navigation > a {
+        min-width: auto !important;
+        min-height: 42px !important;
+        padding: 9px 13px !important;
+        font-size: 12px !important;
+    }
+
+    #topnav-container #main-navigation > a .title {
+        font-size: 12px !important;
+    }
+
+    #content {
+        width: 100% !important;
+        padding: 14px !important;
+        background: #f3f6fc !important;
+    }
+
+    /* Sidebar belongs to the existing mobile drawer */
+    #pp-drawer #sidebar {
+        background: #17243a !important;
+        color: #e2e8f0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    #pp-drawer #sidebar header {
+        color: #bfdbfe !important;
+        background: #253754 !important;
+    }
+
+    #pp-drawer #sidebar #sub-navigation li a {
+        color: #e2e8f0 !important;
+    }
+
+    #pp-drawer #sidebar #sub-navigation li a:hover {
+        color: #ffffff !important;
+        background: #30486c !important;
+    }
+}
+
+/* Smaller phones */
+@media (max-width: 480px) {
+    #topnav-container #main-navigation > a {
+        flex-direction: column !important;
+        min-width: 64px !important;
+        gap: 4px !important;
+        padding: 7px 10px !important;
+    }
+
+    #topnav-container #main-navigation > a .title {
+        font-size: 11px !important;
+    }
+
+    #content {
+        padding: 10px !important;
+    }
+}
+
+/* PlazaPanel 1.4 — Mobile navigation refinements */
+
+@media (max-width: 767px) {
+
+    #topnav-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px 12px !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+        background: #eef3fa !important;
+        box-sizing: border-box !important;
+    }
+
+    #topnav-container #main-navigation {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #topnav-container #main-navigation > a {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 68px !important;
+
+        padding: 9px 4px !important;
+        margin: 0 !important;
+
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+    }
+
+    #topnav-container #main-navigation > a > div:first-child {
+        display: block !important;
+        margin: 0 !important;
+        font-size: 21px !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+    }
+
+    #topnav-container #main-navigation > a .title {
+        display: block !important;
+        width: 100% !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        overflow-wrap: normal !important;
+    }
+
+    #topnav-container #main-navigation > a.active {
+        background: #2563eb !important;
+        border-color: #2563eb !important;
+        box-shadow: 0 4px 12px rgba(37,99,235,.17) !important;
+    }
+
+    /* Contextual navigation drawer */
+    #pp-drawer #sidebar {
+        padding: 14px 12px 28px !important;
+    }
+
+    #pp-drawer #sidebar #sub-navigation li a {
+        display: block !important;
+        min-height: 43px !important;
+        padding: 12px 14px !important;
+        border-radius: 9px !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+}
+
+@media (max-width: 359px) {
+    #topnav-container #main-navigation {
+        gap: 5px !important;
+    }
+
+    #topnav-container #main-navigation > a {
+        min-height: 62px !important;
+        padding: 7px 2px !important;
+    }
+
+    #topnav-container #main-navigation > a .title {
+        font-size: 10px !important;
+    }
+}
