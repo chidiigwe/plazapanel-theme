@@ -1,0 +1,61 @@
+/* PlazaPanel compact navigation */
+
+#topnav-container {
+    min-height: 54px !important;
+    padding: 5px 14px !important;
+}
+
+#topnav-container #main-navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#topnav-container #main-navigation > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 0 13px !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+}
+
+#topnav-container #main-navigation > a > div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#topnav-container #main-navigation > a .title {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    padding: 0 !important;
+}
+
+#topnav-container #main-navigation > a i,
+#topnav-container #main-navigation > a .icon {
+    font-size: 18px !important;
+    line-height: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+#topnav-container #main-navigation > a.active {
+    background: #2563eb !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+#topnav-container #main-navigation > a:hover:not(.active) {
+    background: #e8efff !important;
+    color: #1d4ed8 !important;
+}

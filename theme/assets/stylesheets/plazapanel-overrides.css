@@ -1,0 +1,222 @@
+/* =========================================================
+   PLAZAPANEL GLOBAL INTERIOR THEME
+   Applies to ISPConfig content pages only
+   ========================================================= */
+
+:root {
+    --pp-primary: #2563eb;
+    --pp-primary-hover: #1d4ed8;
+    --pp-text: #172b4d;
+    --pp-muted: #64748b;
+    --pp-border: #dbe3ef;
+    --pp-background: #f5f7fc;
+    --pp-danger: #dc3545;
+    --pp-radius: 8px;
+}
+
+/* Buttons */
+#pageContent .formbutton-success,
+#pageContent .btn-success,
+#pageContent .btn-primary {
+    background: var(--pp-primary) !important;
+    border: 1px solid var(--pp-primary) !important;
+    color: #fff !important;
+    border-radius: 7px !important;
+    box-shadow: none !important;
+    background-image: none !important;
+}
+
+#pageContent .formbutton-success:hover,
+#pageContent .btn-success:hover,
+#pageContent .btn-primary:hover {
+    background: var(--pp-primary-hover) !important;
+    border-color: var(--pp-primary-hover) !important;
+}
+
+/* Delete and destructive buttons */
+#pageContent .formbutton-danger,
+#pageContent .btn-danger {
+    background: var(--pp-danger) !important;
+    border-color: var(--pp-danger) !important;
+    color: #fff !important;
+    background-image: none !important;
+    border-radius: 7px !important;
+    box-shadow: none !important;
+}
+
+/* General form inputs */
+#pageContent input.form-control,
+#pageContent select.form-control,
+#pageContent textarea.form-control,
+#pageContent .input-sm {
+    border: 1px solid #cbd5e1 !important;
+    border-radius: var(--pp-radius) !important;
+    background-color: #fff;
+    color: var(--pp-text);
+    box-shadow: none !important;
+    font-size: 14px;
+    max-width: 100%;
+}
+
+/* Standard text fields */
+#pageContent input.form-control,
+#pageContent select.form-control {
+    min-height: 39px;
+    padding: 8px 12px;
+}
+
+/* Textarea */
+#pageContent textarea.form-control {
+    min-height: 100px;
+    padding: 10px 12px;
+    resize: vertical;
+}
+
+/* Input focus */
+#pageContent .form-control:focus,
+#pageContent input:focus,
+#pageContent select:focus,
+#pageContent textarea:focus {
+    border-color: var(--pp-primary) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12) !important;
+}
+
+/* Native dropdowns */
+#pageContent select.form-control {
+    appearance: auto;
+    cursor: pointer;
+}
+
+/* Select2 containers */
+#pageContent .select2-container {
+    max-width: 100%;
+}
+
+#pageContent .select2-container .select2-selection--single {
+    min-height: 39px;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+#pageContent .select2-container .select2-selection__rendered {
+    line-height: 37px !important;
+    padding-left: 12px !important;
+    color: var(--pp-text);
+}
+
+#pageContent .select2-container .select2-selection__arrow {
+    height: 37px !important;
+}
+
+/* Older Select2 markup */
+#pageContent .select2-container .select2-choice {
+    min-height: 39px;
+    line-height: 37px;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+#pageContent .select2-container .select2-choice .select2-arrow {
+    background: #f8fafc !important;
+    border-left: 1px solid #e2e8f0 !important;
+}
+
+/* Form labels */
+#pageContent .control-label {
+    color: var(--pp-text);
+    font-weight: 500;
+}
+
+/* Form groups */
+#pageContent .form-group {
+    margin-bottom: 18px;
+}
+
+/* Tables */
+#pageContent .table-wrapper {
+    border: 1px solid var(--pp-border);
+    border-radius: 8px;
+    background: #fff;
+    max-width: 100%;
+}
+
+#pageContent .table {
+    color: var(--pp-text);
+    margin-bottom: 0;
+}
+
+#pageContent .table thead {
+    background: #f1f5f9;
+}
+
+#pageContent .table th {
+    color: #334155;
+    font-weight: 600;
+    border-bottom: 1px solid var(--pp-border);
+}
+
+#pageContent .table td {
+    vertical-align: middle;
+    border-color: var(--pp-border);
+}
+
+#pageContent .table tbody tr:hover {
+    background: #f8faff;
+}
+
+/* Table filter row */
+#pageContent .table thead input,
+#pageContent .table thead select {
+    max-width: 100%;
+    border-radius: 7px;
+}
+
+/* Pagination */
+#pageContent .pagination > .active > a,
+#pageContent .pagination > .active > span {
+    background: var(--pp-primary) !important;
+    border-color: var(--pp-primary) !important;
+    color: #fff !important;
+}
+
+/* Panels */
+#pageContent .panel,
+#pageContent .content-tab-wrapper {
+    border-color: var(--pp-border);
+    border-radius: 10px;
+}
+
+/* Tabs */
+#pageContent .nav-tabs > li.active > a {
+    color: var(--pp-primary);
+    font-weight: 600;
+}
+
+/* Checkbox and radio accent */
+#pageContent input[type="checkbox"],
+#pageContent input[type="radio"] {
+    accent-color: var(--pp-primary);
+}
+
+/* Disabled fields */
+#pageContent .form-control:disabled,
+#pageContent .form-control[readonly] {
+    background: #f1f5f9;
+    color: var(--pp-muted);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    #pageContent .form-control {
+        width: 100%;
+    }
+
+    #pageContent .table-wrapper {
+        overflow-x: auto;
+    }
+}
